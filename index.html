@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parking System</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+
+	<div class="distance">
+		<div>Distance</div>
+		<span id="count">0</span>
+		<div id="vehicleStatus">Vehicle is not Present</div>
+	</div>
+
+	<script type="text/javascript" src="assets/jquery-3.5.1.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+
+	<script>
+		var firebaseConfig = {
+			apiKey: "AIzaSyDrb2_CwmJse3KOWA_X17IJYHe4kExHi5s",
+			authDomain: "fastparkingsystem-b28c5.firebaseapp.com",
+			projectId: "fastparkingsystem-b28c5",
+			databaseURL: "https://fastparkingsystem-b28c5-default-rtdb.firebaseio.com/",
+			storageBucket: "fastparkingsystem-b28c5.appspot.com",
+		};
+
+	  	firebase.initializeApp(firebaseConfig);
+		
+		firebase.database().ref('Distance').on('value', (snapshot) => {
+			$("#count").text(snapshot.val());
+			if(parseInt($("#count").text()) > 25 && parseInt($("#count").text()) < 50){
+				$("#vehicleStatus").text("Vehicle is Present")
+			} else {
+				$("#vehicleStatus").text("Vehicle is not Present")
+			}
+		});
+		// firebase.database().ref().update({'Distance': 120});
+	</script>
+</body>
+</html>

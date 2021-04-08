@@ -1,0 +1,22 @@
+.distance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc( 100vh - 20px );
+}
+.distance div{
+	font-size: 5rem;
+	font-family: system-ui;
+	font-weight: 300;
+}
+
+.distance span{
+	font-size: 5rem;
+	font-family: system-ui;
+	font-weight: bold;
+}
+
+#vehicleStatus{
+	font-size: 16px;
+}
