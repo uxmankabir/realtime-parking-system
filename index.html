@@ -28,7 +28,7 @@
 
 	  	firebase.initializeApp(firebaseConfig);
 		
-		firebase.database().ref('Distance').on('value', (snapshot) => {
+		firebase.database().ref('slot1/distance').on('value', (snapshot) => {
 			$("#count").text(snapshot.val());
 			if(parseInt($("#count").text()) > 25 && parseInt($("#count").text()) < 50){
 				$("#vehicleStatus").text("Vehicle is Present")
